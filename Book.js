@@ -1,4 +1,3 @@
-import {API_ENDPOINT} from "./index.js";
 import React, { useState } from "react";
 import {
     deleteBook,
@@ -17,24 +16,7 @@ const Book = ({setBooks, bookId, bookTitle, bookStart, bookEnd}) => {
   const [updateNewBookTitle, setNewUpdateBookTitle] = useState(bookTitle);
   const [updateNewBookStart, setNewUpdateBookStart] = useState(bookStart);
   const [updateNewBookEnd, setNewUpdateBookEnd] = useState(bookEnd);
-  //Add a book from the list of books
-   
-    export const addNewBook = async (newTitle, newStart, newEnd) => {
-      const response = await fetch(`${API_ENDPOINT}/books`, {
-        method: "POST",
-        body: JSON.stringify({
-          title: newTitle,
-          start: newStart,
-          end: newEnd
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-    
-    const newBook = await response.json();
-    return newBook;
-  };
+  
     // Delete a specific book
     const onDeleteBook = async (id) => {
         const responseStatus = await deleteBook(id);
